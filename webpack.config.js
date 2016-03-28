@@ -3,7 +3,9 @@ var config = {
     entry: path.resolve(__dirname, 'src/DoubleScrollbar.jsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js'
+        filename: 'index.js',
+        library: "DoubleScrollbar",
+        libraryTarget: 'umd'
     },
     module: {
         loaders: [{
@@ -11,9 +13,14 @@ var config = {
             loader: 'babel' // The module to load. "babel" is short for "babel-loader"
         }]
     },
-    externals: {
-        'react': 'React'
-    }
+    externals: [{
+        'react': {
+          root: 'React',
+          common2js: 'react',
+          commonjs: 'react',
+          amd: 'react'
+        }
+    }]
 };
 
 module.exports = config;

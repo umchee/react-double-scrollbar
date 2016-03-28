@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require(undefined));
+	else if(typeof define === 'function' && define.amd)
+		define(["react"], factory);
+	else if(typeof exports === 'object')
+		exports["DoubleScrollbar"] = factory(require("react"));
+	else
+		root["DoubleScrollbar"] = factory(root["React"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -125,7 +135,9 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	module.exports = React;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
 
 /***/ }
-/******/ ]);
+/******/ ])
+});
+;
