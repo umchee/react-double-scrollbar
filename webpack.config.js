@@ -30,14 +30,14 @@ var config = {
       root: path.resolve('./src'),
       extensions: ['', '.js']
     },
-    // externals: {
-    //     'react': {
-    //       root: 'React',
-    //       common2js: 'react',
-    //       commonjs: 'react',
-    //       amd: 'react'
-    //     }
-    // }
+    externals: {
+        'react': {
+          root: 'React',
+          common2js: 'react',
+          commonjs: 'react',
+          amd: 'react'
+        }
+    }
 };
 
 module.exports = config;
