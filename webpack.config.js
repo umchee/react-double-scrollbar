@@ -17,7 +17,7 @@ var config = {
         loaders: [{
             test: /\.jsx?$/, // A regexp to test the require path. accepts either js or jsx
             loader: 'babel', // The module to load. "babel" is short for "babel-loader"
-            exclude: /(node_modules|bower_components)/
+            exclude: /node_modules/
         },
         {
           test: /(\.jsx|\.js)$/,
@@ -28,15 +28,10 @@ var config = {
     },
     resolve: {
       root: path.resolve('./src'),
-      extensions: ['', '.js']
+      extensions: ['', '.js', 'jsx']
     },
     externals: {
-        'react': {
-          root: 'React',
-          common2js: 'react',
-          commonjs: 'react',
-          amd: 'react'
-        }
+        'react': 'React'
     }
 };
 

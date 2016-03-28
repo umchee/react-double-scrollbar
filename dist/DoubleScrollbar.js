@@ -1,10 +1,10 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require(undefined));
+		module.exports = factory(require("React"));
 	else if(typeof define === 'function' && define.amd)
-		define("DoubleScrollbar", ["react"], factory);
+		define("DoubleScrollbar", ["React"], factory);
 	else if(typeof exports === 'object')
-		exports["DoubleScrollbar"] = factory(require("react"));
+		exports["DoubleScrollbar"] = factory(require("React"));
 	else
 		root["DoubleScrollbar"] = factory(root["React"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
