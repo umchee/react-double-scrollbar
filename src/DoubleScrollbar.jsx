@@ -11,7 +11,6 @@ class DoubleScrollbar extends React.Component {
 
     //Set the width of the inner div to the first child's
     innerDiv.style.width = childWrapper.scrollWidth + "px";
-    innerDiv.appendChild(document.createTextNode("\xA0"));
 
     //assoc the scrolls
     outerDiv.onscroll = function() {
@@ -32,7 +31,7 @@ class DoubleScrollbar extends React.Component {
     return (
       <div>
         <div ref="outerDiv" style={outerDivStyle}>
-          <div ref="innerDiv" style={innerDivStyle}></div>
+          <div ref="innerDiv" style={innerDivStyle}>&nbsp;</div>
         </div>
         <div ref="childrenWrapper" style={childDivStyle} >
           {this.props.children}
