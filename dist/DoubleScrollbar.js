@@ -54,7 +54,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -70,7 +74,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	'use strict';
+	"use strict";
 	
 	var DoubleScrollbar = function (_React$Component) {
 	  _inherits(DoubleScrollbar, _React$Component);
@@ -82,15 +86,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	
 	  _createClass(DoubleScrollbar, [{
-	    key: 'componentDidMount',
+	    key: "componentDidMount",
 	    value: function componentDidMount() {
 	      var outerDiv = this.refs.outerDiv;
 	      var innerDiv = this.refs.innerDiv;
 	      var childWrapper = this.refs.childrenWrapper;
 	
 	      //Set the width of the inner div to the first child's
-	      innerDiv.style.width = childWrapper.scrollWidth + 'px';
-	      innerDiv.appendChild(document.createTextNode('\xA0'));
+	      innerDiv.style.width = childWrapper.scrollWidth + "px";
+	      innerDiv.appendChild(document.createTextNode("\xA0"));
 	
 	      //assoc the scrolls
 	      outerDiv.onscroll = function () {
@@ -102,7 +106,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 	    }
 	  }, {
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	
 	      var outerDivStyle = { overflowX: "auto", overflowY: "hidden" };
@@ -110,16 +114,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var childDivStyle = { overflow: "auto", overflowY: "hidden" };
 	
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
 	        _react2.default.createElement(
-	          'div',
-	          { ref: 'outerDiv', style: outerDivStyle },
-	          _react2.default.createElement('div', { ref: 'innerDiv', style: innerDivStyle })
+	          "div",
+	          { ref: "outerDiv", style: outerDivStyle },
+	          _react2.default.createElement("div", { ref: "innerDiv", style: innerDivStyle })
 	        ),
 	        _react2.default.createElement(
-	          'div',
-	          { ref: 'childrenWrapper', style: childDivStyle },
+	          "div",
+	          { ref: "childrenWrapper", style: childDivStyle },
 	          this.props.children
 	        )
 	      );
@@ -129,7 +133,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return DoubleScrollbar;
 	}(_react2.default.Component);
 	
-	module.exports = DoubleScrollbar;
+	exports.default = DoubleScrollbar;
+	module.exports = exports['default'];
 
 /***/ },
 /* 1 */

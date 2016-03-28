@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-'use strict';
+"use strict";
 
 class DoubleScrollbar extends React.Component {
 
@@ -10,8 +10,8 @@ class DoubleScrollbar extends React.Component {
     let childWrapper = this.refs.childrenWrapper;
 
     //Set the width of the inner div to the first child's
-    innerDiv.style.width = childWrapper.scrollWidth+'px';
-    innerDiv.appendChild(document.createTextNode('\xA0'));
+    innerDiv.style.width = childWrapper.scrollWidth + "px";
+    innerDiv.appendChild(document.createTextNode("\xA0"));
 
     //assoc the scrolls
     outerDiv.onscroll = function() {
@@ -42,4 +42,4 @@ class DoubleScrollbar extends React.Component {
   }
 }
 
-module.exports = DoubleScrollbar;
+export default DoubleScrollbar;
