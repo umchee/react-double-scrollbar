@@ -31,7 +31,7 @@ var config = {
       extensions: ['', '.js', 'jsx']
     },
     externals: {
-        'react': 'React'
+        'react': 'react'
     }
 };
 

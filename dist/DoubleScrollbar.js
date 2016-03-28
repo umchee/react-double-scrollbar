@@ -1,12 +1,12 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("React"));
+		module.exports = factory(require("react"));
 	else if(typeof define === 'function' && define.amd)
-		define("DoubleScrollbar", ["React"], factory);
+		define("DoubleScrollbar", ["react"], factory);
 	else if(typeof exports === 'object')
-		exports["DoubleScrollbar"] = factory(require("React"));
+		exports["DoubleScrollbar"] = factory(require("react"));
 	else
-		root["DoubleScrollbar"] = factory(root["React"]);
+		root["DoubleScrollbar"] = factory(root["react"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -94,7 +94,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      //Set the width of the inner div to the first child's
 	      innerDiv.style.width = childWrapper.scrollWidth + "px";
-	      innerDiv.appendChild(document.createTextNode("\xA0"));
 	
 	      //assoc the scrolls
 	      outerDiv.onscroll = function () {
@@ -119,7 +118,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _react2.default.createElement(
 	          "div",
 	          { ref: "outerDiv", style: outerDivStyle },
-	          _react2.default.createElement("div", { ref: "innerDiv", style: innerDivStyle })
+	          _react2.default.createElement(
+	            "div",
+	            { ref: "innerDiv", style: innerDivStyle },
+	            " "
+	          )
 	        ),
 	        _react2.default.createElement(
 	          "div",
