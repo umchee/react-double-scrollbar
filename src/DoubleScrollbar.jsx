@@ -42,4 +42,4 @@ class DoubleScrollbar extends React.Component {
   }
 }
 
-export default DoubleScrollbar
+module.exports = DoubleScrollbar;
