@@ -1,6 +1,6 @@
 React-Double Scrollbar
 ======================
-Adds a horizontal scrollbar to the top of the element.
+Adds a horizontal scrollbar to the top of an element.
 
 ## Usage
 Example in a React.Component render method:
