@@ -30,3 +30,7 @@ You can also use the standalone build by including `dist/DoubleScrollbar.js` in 
 # License
 
 MIT
+
+# Change log
+v0.0.9
+- Added tests and documentation
