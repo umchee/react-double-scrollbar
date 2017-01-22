@@ -30,7 +30,7 @@
     "dev": "WEBPACK_ENV=dev webpack --progress --colors --watch",
     "test": "jest"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^0.14.7"
   },
   "devDependencies": {
