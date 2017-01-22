@@ -82,7 +82,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function DoubleScrollbar() {
 	    _classCallCheck(this, DoubleScrollbar);
 	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(DoubleScrollbar).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (DoubleScrollbar.__proto__ || Object.getPrototypeOf(DoubleScrollbar)).apply(this, arguments));
 	  }
 	
 	  _createClass(DoubleScrollbar, [{
@@ -121,7 +121,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _react2.default.createElement(
 	            "div",
 	            { ref: "innerDiv", style: innerDivStyle },
-	            " "
+	            "\xA0"
 	          )
 	        ),
 	        _react2.default.createElement(
