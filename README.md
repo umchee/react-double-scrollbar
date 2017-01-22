@@ -33,6 +33,6 @@ MIT
 
 # Change log
 v0.0.10
--Dependency fix
+-Dependency fix, added peerDependency and allow for react 0.14.7 or newer
 v0.0.9
 - Added tests and documentation
