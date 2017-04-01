@@ -32,7 +32,11 @@ You can also use the standalone build by including `dist/DoubleScrollbar.js` in 
 MIT
 
 # Change log
+v0.0.11
+- Add onresize to update the scrollbar when the window size changes
+
 v0.0.10
--Dependency fix, added peerDependency and allow for react 0.14.7 or newer
+- Dependency fix, added peerDependency and allow for react 0.14.7 or newer
+
 v0.0.9
 - Added tests and documentation
