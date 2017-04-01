@@ -95,6 +95,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(DoubleScrollbar, [{
 	    key: "componentDidMount",
 	    value: function componentDidMount() {
+	
+	      console.log("in componentDidMount", this.refs.childrenWrapper);
+	
 	      var outerDiv = this.refs.outerDiv;
 	      var childWrapper = this.refs.childrenWrapper;
 	
@@ -121,14 +124,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: "calculateWidth",
 	    value: function calculateWidth() {
-	      var childWrapper = this.refs.childrenWrapper;
 	
-	      console.log("childWrapper.scrollWidth", childWrapper.scrollWidth);
+	      console.log("in calculateWidth", this.refs.childrenWrapper);
 	
 	      // Set the width of the inner div to the first child's
-	      if (childWrapper) {
+	      if (this.refs.childrenWrapper) {
 	        this.setState({
-	          width: childWrapper.scrollWidth + "px"
+	          width: this.refs.childrenWrapper.scrollWidth + "px"
 	        });
 	      }
 	    }
