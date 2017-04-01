@@ -48,15 +48,19 @@ All help is appreciated. To contribute please create a branch, make changes, add
 # Development
 
 Clone repo then run
+
 `npm install`
 
 To build run
+
 `npm run build`
 
 To test
+
 `npm test`
 
 Test in watch mode
+
 `npm test -- --watch`
 
 # To create and publish a new version
@@ -64,8 +68,11 @@ Test in watch mode
 Make sure to update version in package.json
 
 To create a new tag run
+
 `git tag <new version>`
+
 `git push origin --tags`
 
 To publish to npm
+
 `npm publish`
