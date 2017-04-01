@@ -87,21 +87,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _this.state = {
 	      width: "auto"
 	    };
+	
+	    _this.boundCalculateWidth = _this.calculateWidth.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(DoubleScrollbar, [{
 	    key: "componentDidMount",
 	    value: function componentDidMount() {
+	
 	      var outerDiv = this.refs.outerDiv;
-	      var innerDiv = this.refs.innerDiv;
 	      var childWrapper = this.refs.childrenWrapper;
 	
 	      // Set initial width
 	      this.calculateWidth();
 	
 	      // Update width when window size changes
-	      window.addEventListener("resize", this.calculateWidth.bind(this));
+	      window.addEventListener("resize", this.boundCalculateWidth);
 	
 	      // assoc the scrolls
 	      outerDiv.onscroll = function () {
@@ -115,17 +117,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: "componentWillUnmount",
 	    value: function componentWillUnmount() {
-	      window.removeEventListener("resize", this.calculateWidth.bind(this));
+	      window.removeEventListener("resize", this.boundCalculateWidth);
 	    }
 	  }, {
 	    key: "calculateWidth",
 	    value: function calculateWidth() {
-	      var childWrapper = this.refs.childrenWrapper;
 	
 	      // Set the width of the inner div to the first child's
-	      if (childWrapper) {
+	      if (this.refs.childrenWrapper) {
 	        this.setState({
-	          width: childWrapper.scrollWidth + "px"
+	          width: this.refs.childrenWrapper.scrollWidth + "px"
 	        });
 	      }
 	    }
