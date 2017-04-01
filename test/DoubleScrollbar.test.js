@@ -13,6 +13,9 @@ describe('DoubleScrollbar', () => {
 
   beforeEach(function() {
 
+    spyOn(window, "addEventListener").and.callThrough();
+    spyOn(window, "removeEventListener").and.callThrough();
+
     let divStyle = { "width" : childWidth + "px" };
     doubleScrollbar = TestUtils.renderIntoDocument(
       <DoubleScrollbar>
@@ -25,6 +28,15 @@ describe('DoubleScrollbar', () => {
     expect(doubleScrollbar.refs.innerDiv).toBeDefined();
     expect(doubleScrollbar.refs.childrenWrapper).toBeDefined();
     expect(doubleScrollbar.refs.childrenWrapper.firstChild.id).toBe(wrappedId);
+    expect(window.addEventListener).toHaveBeenCalledWith("resize", doubleScrollbar.boundCalculateWidth);
+    expect(doubleScrollbar.state.width).toBe("999px");
   });
+
+  it('cleans up on unmount', () => {
+    ReactDOM.unmountComponentAtNode(ReactDOM.findDOMNode(doubleScrollbar).parentNode);
+    expect(window.removeEventListener).toHaveBeenCalledWith("resize", doubleScrollbar.boundCalculateWidth);
+  });
+
+
 
 });

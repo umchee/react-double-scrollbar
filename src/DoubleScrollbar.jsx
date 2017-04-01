@@ -8,18 +8,19 @@ class DoubleScrollbar extends React.Component {
     this.state = {
       width: "auto"
     };
+
+    this.boundCalculateWidth = this.calculateWidth.bind(this);
   }
 
   componentDidMount() {
     let outerDiv = this.refs.outerDiv;
-    let innerDiv = this.refs.innerDiv;
     let childWrapper = this.refs.childrenWrapper;
 
     // Set initial width
     this.calculateWidth();
 
     // Update width when window size changes
-    window.addEventListener("resize", this.calculateWidth.bind(this));
+    window.addEventListener("resize", this.boundCalculateWidth);
 
     // assoc the scrolls
     outerDiv.onscroll = function() {
@@ -32,11 +33,13 @@ class DoubleScrollbar extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.calculateWidth.bind(this));
+    window.removeEventListener("resize", this.boundCalculateWidth);
   }
 
   calculateWidth() {
     let childWrapper = this.refs.childrenWrapper;
+
+    console.log("childWrapper.scrollWidth", childWrapper.scrollWidth);
 
     // Set the width of the inner div to the first child's
     if(childWrapper) {
