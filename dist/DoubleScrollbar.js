@@ -79,10 +79,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	var DoubleScrollbar = function (_React$Component) {
 	  _inherits(DoubleScrollbar, _React$Component);
 	
-	  function DoubleScrollbar() {
+	  function DoubleScrollbar(props) {
 	    _classCallCheck(this, DoubleScrollbar);
 	
-	    return _possibleConstructorReturn(this, (DoubleScrollbar.__proto__ || Object.getPrototypeOf(DoubleScrollbar)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (DoubleScrollbar.__proto__ || Object.getPrototypeOf(DoubleScrollbar)).call(this, props));
+	
+	    _this.state = {
+	      width: "auto"
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(DoubleScrollbar, [{
@@ -92,10 +97,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var innerDiv = this.refs.innerDiv;
 	      var childWrapper = this.refs.childrenWrapper;
 	
-	      //Set the width of the inner div to the first child's
-	      innerDiv.style.width = childWrapper.scrollWidth + "px";
+	      // Set initial width
+	      this.calculateWidth();
 	
-	      //assoc the scrolls
+	      // Update width when window size changes
+	      window.addEventListener("resize", this.calculateWidth.bind(this));
+	
+	      // assoc the scrolls
 	      outerDiv.onscroll = function () {
 	        childWrapper.scrollLeft = outerDiv.scrollLeft;
 	      };
@@ -105,11 +113,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 	    }
 	  }, {
+	    key: "componentWillUnmount",
+	    value: function componentWillUnmount() {
+	      window.removeEventListener("resize", this.calculateWidth.bind(this));
+	    }
+	  }, {
+	    key: "calculateWidth",
+	    value: function calculateWidth() {
+	      var childWrapper = this.refs.childrenWrapper;
+	
+	      // Set the width of the inner div to the first child's
+	      if (childWrapper) {
+	        this.setState({
+	          width: childWrapper.scrollWidth + "px"
+	        });
+	      }
+	    }
+	  }, {
 	    key: "render",
 	    value: function render() {
-	
 	      var outerDivStyle = { overflowX: "auto", overflowY: "hidden" };
-	      var innerDivStyle = { paddingTop: "1px" };
+	      var innerDivStyle = { paddingTop: "1px", width: this.state.width };
 	      var childDivStyle = { overflow: "auto", overflowY: "hidden" };
 	
 	      return _react2.default.createElement(
