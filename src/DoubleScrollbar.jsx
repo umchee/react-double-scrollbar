@@ -14,8 +14,6 @@ class DoubleScrollbar extends React.Component {
 
   componentDidMount() {
 
-    console.log("in componentDidMount", this.refs.childrenWrapper);
-
     let outerDiv = this.refs.outerDiv;
     let childWrapper = this.refs.childrenWrapper;
 
@@ -40,8 +38,6 @@ class DoubleScrollbar extends React.Component {
   }
 
   calculateWidth() {
-
-    console.log("in calculateWidth", this.refs.childrenWrapper);
 
     // Set the width of the inner div to the first child's
     if(this.refs.childrenWrapper) {

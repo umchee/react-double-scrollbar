@@ -18,13 +18,8 @@ describe('DoubleScrollbar', () => {
         <div id={wrappedId} style={divStyle}><p>this is a wide div</p></div>
       </DoubleScrollbar>);
 
-    doubleScrollbar.refs.childrenWrapper.scrollWidth = childWidth;
-
     return doubleScrollbar;
   };
-
-  // beforeEach(function() {
-  // });
 
   it('renders successfully', () => {
     spyOn(window, "addEventListener").and.callThrough();
@@ -36,13 +31,6 @@ describe('DoubleScrollbar', () => {
     expect(window.addEventListener).toHaveBeenCalledWith("resize", doubleScrollbar.boundCalculateWidth);
   });
 
-  it('handles changes to the inner child width', () => {
-    let doubleScrollbar = createComponent();
-    doubleScrollbar.refs.childrenWrapper.scrollWidth = childWidth;
-    window.resizeTo(2500, 1500);
-    expect(doubleScrollbar.state.width).toBe(childWidth + "px");
-  });
-
   it('cleans up on unmount', () => {
     spyOn(window, "removeEventListener").and.callThrough();
     let doubleScrollbar = createComponent();
@@ -50,6 +38,15 @@ describe('DoubleScrollbar', () => {
     expect(window.removeEventListener).toHaveBeenCalledWith("resize", doubleScrollbar.boundCalculateWidth);
   });
 
+  it('handles changes to the inner child width', () => {
+    let doubleScrollbar = createComponent();
+    // the unit test env does not set scrollWidth on elements
+    expect(doubleScrollbar.state.width).toBe(undefined + "px");
 
+    // force a value for the element then dispatch a resize event so calculateWidth is called
+    doubleScrollbar.refs.childrenWrapper.scrollWidth = childWidth;
+    window.dispatchEvent(new Event('resize'));
+    expect(doubleScrollbar.state.width).toBe(childWidth + "px");
+  });
 
 });
