@@ -32,6 +32,9 @@ You can also use the standalone build by including `dist/DoubleScrollbar.js` in 
 MIT
 
 # Change log
+v0.0.12
+- Recalculate the width of the children in componentDidUpdate and if the width has changed update the width of the top scrollbar div.
+
 v0.0.11
 - Add onresize to update the scrollbar when the window size changes
 
