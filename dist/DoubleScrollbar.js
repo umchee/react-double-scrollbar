@@ -120,19 +120,40 @@ return /******/ (function(modules) { // webpackBootstrap
 	      window.removeEventListener("resize", this.boundCalculateWidth);
 	    }
 	  }, {
+	    key: "componentDidUpdate",
+	    value: function componentDidUpdate() {
+	      this.calculateWidth();
+	    }
+	  }, {
 	    key: "calculateWidth",
 	    value: function calculateWidth() {
 	
+	      var width = this.getChildWrapperWidth();
+	
+	      if (width == null) {
+	        width = "auto";
+	      }
+	
 	      // Set the width of the inner div to the first child's
-	      if (this.refs.childrenWrapper) {
+	      if (width !== this.state.width) {
 	        this.setState({
-	          width: this.refs.childrenWrapper.scrollWidth + "px"
+	          width: width
 	        });
 	      }
 	    }
 	  }, {
+	    key: "getChildWrapperWidth",
+	    value: function getChildWrapperWidth() {
+	      var width = null;
+	      if (this.refs.childrenWrapper && this.refs.childrenWrapper.scrollWidth) {
+	        width = this.refs.childrenWrapper.scrollWidth + "px";
+	      }
+	      return width;
+	    }
+	  }, {
 	    key: "render",
 	    value: function render() {
+	
 	      var outerDivStyle = { overflowX: "auto", overflowY: "hidden" };
 	      var innerDivStyle = { paddingTop: "1px", width: this.state.width };
 	      var childDivStyle = { overflow: "auto", overflowY: "hidden" };
