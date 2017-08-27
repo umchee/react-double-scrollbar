@@ -1,6 +1,6 @@
 {
   "name": "react-double-scrollbar",
-  "version": "0.0.12",
+  "version": "0.0.15",
   "description": "React component that adds a horizontal scrollbar to the top of a component",
   "main": "dist/DoubleScrollbar.js",
   "repository": {
