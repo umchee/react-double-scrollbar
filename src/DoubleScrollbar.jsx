@@ -37,17 +37,36 @@ class DoubleScrollbar extends React.Component {
     window.removeEventListener("resize", this.boundCalculateWidth);
   }
 
+  componentDidUpdate() {
+    this.calculateWidth();
+  }
+
   calculateWidth() {
 
+    let width = this.getChildWrapperWidth();
+
+    if (width == null) {
+      width = "auto";
+    }
+
     // Set the width of the inner div to the first child's
-    if(this.refs.childrenWrapper) {
+    if (width !== this.state.width) {
       this.setState({
-        width: this.refs.childrenWrapper.scrollWidth + "px"
+        width: width
       });
     }
   }
 
+  getChildWrapperWidth() {
+    let width = null;
+    if (this.refs.childrenWrapper && this.refs.childrenWrapper.scrollWidth) {
+      width = this.refs.childrenWrapper.scrollWidth + "px"
+    }
+    return width;
+  }
+
   render() {
+
     let outerDivStyle = { overflowX: "auto", overflowY: "hidden" };
     let innerDivStyle = { paddingTop: "1px", width: this.state.width };
     let childDivStyle = { overflow: "auto", overflowY: "hidden" };

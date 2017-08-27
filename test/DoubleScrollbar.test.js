@@ -41,12 +41,46 @@ describe('DoubleScrollbar', () => {
   it('handles changes to the inner child width', () => {
     let doubleScrollbar = createComponent();
     // the unit test env does not set scrollWidth on elements
-    expect(doubleScrollbar.state.width).toBe(undefined + "px");
+    expect(doubleScrollbar.state.width).toBe("auto");
 
     // force a value for the element then dispatch a resize event so calculateWidth is called
     doubleScrollbar.refs.childrenWrapper.scrollWidth = childWidth;
     window.dispatchEvent(new Event('resize'));
     expect(doubleScrollbar.state.width).toBe(childWidth + "px");
+  });
+
+  it('handles changes to size on re-render', () => {
+    let doubleScrollbar = createComponent();
+    // the unit test env does not set scrollWidth on elements
+    expect(doubleScrollbar.state.width).toBe("auto");
+
+    // new value for the width of the childrenWrapper
+    doubleScrollbar.refs.childrenWrapper.scrollWidth = childWidth;
+
+    doubleScrollbar.componentDidUpdate();
+
+    expect(doubleScrollbar.state.width).toBe(childWidth + "px");
+  });
+
+  it('does not call setState if the scrollWidth did not change', () => {
+    let doubleScrollbar = createComponent();
+    const setStateSpy = spyOn(doubleScrollbar, 'setState').and.callThrough();
+
+    // the unit test env does not set scrollWidth on elements, so it is auto to start
+    expect(doubleScrollbar.state.width).toBe("auto");
+
+    // new value for the width of the childrenWrapper
+    doubleScrollbar.refs.childrenWrapper.scrollWidth = childWidth;
+
+    // should call setState
+    doubleScrollbar.componentDidUpdate();
+    expect(doubleScrollbar.state.width).toBe(childWidth + "px");
+
+    //should not call setState
+    doubleScrollbar.componentDidUpdate();
+
+    expect(setStateSpy.calls.count(), 1);
+
   });
 
 });
