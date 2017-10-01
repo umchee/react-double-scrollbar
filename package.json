@@ -17,7 +17,7 @@
     "scrollbar",
     "double scrollbar"
   ],
-  "author": "Scott McDaniel <hknapps@gmail.com> (https://scottmcdaniel.me)",
+  "author": "Scott McDaniel",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/umchee/react-double-scrollbar/issues"
