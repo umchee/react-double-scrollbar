@@ -1,4 +1,5 @@
 import React from "react";
+import throttle from "lodash.throttle";
 
 "use strict";
 
@@ -38,7 +39,7 @@ class DoubleScrollbar extends React.Component {
   }
 
   componentDidUpdate() {
-    this.calculateWidth();
+    throttle(this.calculateWidth, 1000);
   }
 
   calculateWidth() {
