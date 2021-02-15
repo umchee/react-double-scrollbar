@@ -1,3 +1,4 @@
+// https://github.com/umchee/react-double-scrollbar/blob/master/src/DoubleScrollbar.jsx
 import React from "react";
 
 "use strict";
