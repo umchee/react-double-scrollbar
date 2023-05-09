@@ -3,6 +3,7 @@
   "version": "0.0.15",
   "description": "React component that adds a horizontal scrollbar to the top of a component",
   "main": "dist/DoubleScrollbar.js",
+  "types": "react-double-scrollbar.d.ts",
   "repository": {
     "type": "git",
     "url": "git://github.com/umchee/react-double-scrollbar.git"
